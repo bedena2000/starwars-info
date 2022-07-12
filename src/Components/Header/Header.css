@@ -4,6 +4,7 @@
   align-items: flex-end;
   justify-content: space-between;
   padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
 
 .logo {
@@ -23,10 +24,10 @@
 }
 
 .header-right-side {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
 
 .side-menu {
-    cursor: pointer;
+  cursor: pointer;
 }

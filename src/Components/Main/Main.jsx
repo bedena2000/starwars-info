@@ -16,7 +16,7 @@ export default class Main extends Component {
             Spot about star wars universe, you can check info about planets,
             persons, and another thing
           </p>
-          <Link to="/explore" className="explore-btn">Explore</Link>
+          <Link to="/universe" className="explore-btn">Explore</Link>
         </div>
       </div>
     );

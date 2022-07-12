@@ -1,0 +1,24 @@
+.universe {
+  min-height: 100vh;
+}
+
+.search-options {
+    display: flex;
+    margin-top: 40px;
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.search-input {
+    width: 200px;
+    outline: none;
+    border: none;
+    padding: 20px;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.options {
+    width: 200px;
+}
