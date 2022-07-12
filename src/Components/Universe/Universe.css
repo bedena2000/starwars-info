@@ -3,22 +3,30 @@
 }
 
 .search-options {
-    display: flex;
-    margin-top: 40px;
-    gap: 30px;
-    justify-content: center;
-    align-items: stretch;
+  display: flex;
+  margin-top: 40px;
+  gap: 30px;
+  justify-content: center;
+  align-items: stretch;
+  overflow: hidden;
 }
 
 .search-input {
-    width: 200px;
-    outline: none;
-    border: none;
-    padding: 20px;
-    color: black;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 200px;
+  outline: none;
+  border: none;
+  padding: 0px 15px;
+  color: black;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  transition: all 0.3s ease;
+  border: 1px solid white;
+}
+
+.search-input:hover,
+.search-input:focus {
+  border: 1px solid black;
 }
 
 .options {
-    width: 200px;
+  width: 200px;
 }

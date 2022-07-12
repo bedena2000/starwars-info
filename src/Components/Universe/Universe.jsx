@@ -42,7 +42,7 @@ export default class Universe extends Component {
               onChange={this.handleChange}
               className="search-input"
             />
-            <FormControl className="options">
+            <FormControl className="options" size="small">
               <InputLabel id="simple-select">Choose</InputLabel>
               <Select
                 labelId="simple-select"
