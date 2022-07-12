@@ -1,0 +1,59 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 600px;
+}
+
+.left-side {
+  width: 300px;
+}
+
+.bigYoda-logo {
+  width: inherit;
+  height: inherit;
+  object-fit: contain;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.right-side h1 {
+}
+
+.right-side h1 span {
+  color: crimson;
+}
+
+.right-side p {
+}
+
+.explore-btn {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  background-color: crimson;
+  margin-top: 10px;
+  transition: all .3s ease;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+}
+
+.explore-btn:hover {
+    background-color: aquamarine;
+    color: black;
+}
