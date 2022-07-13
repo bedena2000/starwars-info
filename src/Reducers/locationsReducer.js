@@ -1,12 +1,12 @@
 const initialState = [];
 
-const speciesReducer = (state = initialState, action) => {
+const locationsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "update/species":
+    case "update/locations":
       return [...action.payload];
     default:
       return state;
   }
 };
 
-export default speciesReducer;
+export default locationsReducer;

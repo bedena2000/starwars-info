@@ -7,16 +7,45 @@ import {
   Input,
   MenuItem,
 } from "@mui/material";
+import { connect } from "react-redux";
+import ItemList from "../ItemList/ItemList";
 
-export default class Universe extends Component {
+class Universe extends Component {
   constructor(props) {
     super(props);
     this.state = {
       inputText: "",
-      selectValue: "",
+      selectValue: "10",
+      allData: [],
+      numberAndName: {
+        10: "films",
+        20: "people",
+        30: "locations",
+        40: "species",
+        60: "vehicles",
+      },
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.seeState = this.seeState.bind(this);
+    this.getAllElements = this.getAllElements.bind(this);
+  }
+
+  getAllElements(nameOfTopic) {
+    if (nameOfTopic) {
+      fetch(`https://ghibliapi.herokuapp.com/${nameOfTopic}`)
+        .then((data) => data.json())
+        .then((data) =>
+          this.props.dispatch({
+            type: `update/${nameOfTopic}`,
+            payload: data,
+          })
+        );
+    }
+  }
+
+  componentDidMount() {
+    this.getAllElements();
   }
 
   handleChange(event) {
@@ -25,15 +54,21 @@ export default class Universe extends Component {
     });
   }
   handleSelect(event) {
-    console.log(event);
+    const currentText = this.state.numberAndName[event.target.value];
     this.setState({
       selectValue: event.target.value,
     });
+    this.getAllElements(currentText);
+  }
+
+  seeState() {
+    console.log(this.state);
   }
 
   render() {
     return (
       <div className="universe">
+        <button onClick={this.seeState}>See State</button>
         <div className="container universe-item-wrapper">
           <div className="search-options">
             <input
@@ -51,18 +86,43 @@ export default class Universe extends Component {
                 value={this.state.selectValue}
                 onChange={this.handleSelect}
               >
-                <MenuItem value={10}>Films</MenuItem>
-                <MenuItem value={20}>People</MenuItem>
-                <MenuItem value={30}>Planets</MenuItem>
-                <MenuItem value={40}>Species</MenuItem>
-                <MenuItem value={50}>Starships</MenuItem>
-                <MenuItem value={60}>Vehicles</MenuItem>
-                <MenuItem value={70}>All</MenuItem>
+                <MenuItem name="films" value={10}>
+                  Films
+                </MenuItem>
+                <MenuItem name="people" value={20}>
+                  People
+                </MenuItem>
+                <MenuItem name="locations" value={30}>
+                  Locations
+                </MenuItem>
+                <MenuItem name="species" value={40}>
+                  Species
+                </MenuItem>
+                <MenuItem name="vehicles" value={60}>
+                  Vehicles
+                </MenuItem>
               </Select>
             </FormControl>
           </div>
+        </div>
+        <div className="container">
+          <ItemList
+            items={this.props[this.state.numberAndName[this.state.selectValue]]}
+          />
         </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    films: state.films,
+    people: state.people,
+    locations: state.locations,
+    species: state.species,
+    vehicles: state.vehicles,
+  };
+};
+
+export default connect(mapStateToProps)(Universe);

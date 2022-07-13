@@ -7,6 +7,7 @@ import { applyMiddleware, compose } from "redux";
 import rootReducer from "./Reducers/rootReducer";
 import { createStore } from "redux";
 import thunk from "redux-thunk";
+import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 const store = createStore(
@@ -14,28 +15,30 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-console.log(store.getState());
+// console.log(store.getState());
 
 class App extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-    fetch("https://swapi.dev/api")
-      .then((data) => data.json())
-      .then((data) => console.log(data));
-  }
+  // componentDidMount() {
+  //   fetch("https://swapi.dev/api")
+  //     .then((data) => data.json())
+  //     .then((data) => console.log(data));
+  // }
 
   render() {
     return (
-      <div className="app">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="universe" element={<Universe />} />
-        </Routes>
-      </div>
+      <Provider store={store}>
+        <div className="app">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="universe" element={<Universe />} />
+          </Routes>
+        </div>
+      </Provider>
     );
   }
 }
