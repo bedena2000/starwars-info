@@ -7,29 +7,32 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import "./EachItem.css";
 import ClipLoader from "react-spinners/ClipLoader";
+import { Link } from "react-router-dom";
 
 export default function MediaCard({ itemInfo }) {
-  console.log(itemInfo);
   return (
     <Card sx={{ maxWidth: 345 }} className="each-item">
       <CardMedia
         component="img"
         height="140"
-        image="/static/images/cards/contemplative-reptile.jpg"
+        image={`${itemInfo.image}`}
         alt="green iguana"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          {itemInfo.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {itemInfo.description}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Link to="/">
+          <Button size="small">Add to Favourite</Button>
+        </Link>
+        <Link to={`${itemInfo.id}`}>
+          <Button size="small">Read More</Button>
+        </Link>
       </CardActions>
     </Card>
   );

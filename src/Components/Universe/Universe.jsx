@@ -45,7 +45,7 @@ class Universe extends Component {
   }
 
   componentDidMount() {
-    this.getAllElements();
+    this.getAllElements("films");
   }
 
   handleChange(event) {
@@ -68,7 +68,6 @@ class Universe extends Component {
   render() {
     return (
       <div className="universe">
-        <button onClick={this.seeState}>See State</button>
         <div className="container universe-item-wrapper">
           <div className="search-options">
             <input
@@ -89,18 +88,6 @@ class Universe extends Component {
                 <MenuItem name="films" value={10}>
                   Films
                 </MenuItem>
-                <MenuItem name="people" value={20}>
-                  People
-                </MenuItem>
-                <MenuItem name="locations" value={30}>
-                  Locations
-                </MenuItem>
-                <MenuItem name="species" value={40}>
-                  Species
-                </MenuItem>
-                <MenuItem name="vehicles" value={60}>
-                  Vehicles
-                </MenuItem>
               </Select>
             </FormControl>
           </div>
@@ -118,10 +105,6 @@ class Universe extends Component {
 const mapStateToProps = (state) => {
   return {
     films: state.films,
-    people: state.people,
-    locations: state.locations,
-    species: state.species,
-    vehicles: state.vehicles,
   };
 };
 

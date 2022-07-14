@@ -9,6 +9,7 @@ import { createStore } from "redux";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
+import EachItemDescirption from "./Components/ItemList/EachItemDescirption";
 
 const store = createStore(
   rootReducer,
@@ -36,6 +37,7 @@ class App extends Component {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="universe" element={<Universe />} />
+            <Route path="universe/:id" element={<EachItemDescirption />} />
           </Routes>
         </div>
       </Provider>

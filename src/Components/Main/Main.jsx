@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Main.css";
-import bigYoda from "../../images/starwars_PNG28.png";
+import bigYoda from "../../images/pngegg.png";
 import { Link } from "react-router-dom";
 
 export default class Main extends Component {
@@ -11,12 +11,16 @@ export default class Main extends Component {
           <img src={bigYoda} className="bigYoda-logo" />
         </div>
         <div className="right-side">
-          <h1>Star <span>Wars</span> Info</h1>
+          <h1>
+            Studio <span>Ghibli</span> Movies
+          </h1>
           <p>
-            Spot about star wars universe, you can check info about planets,
-            persons, and another thing
+            Spot about studio ghibli movies, you can check info about movies,
+            and add them in favourite
           </p>
-          <Link to="/universe" className="explore-btn">Explore</Link>
+          <Link to="/universe" className="explore-btn">
+            Explore
+          </Link>
         </div>
       </div>
     );
